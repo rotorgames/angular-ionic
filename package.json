@@ -1,0 +1,13 @@
+{
+  "name": "angular-ionic",
+  "version": "0.0.1",
+  "description": "angular-ionic",
+  "author": "rotorgames",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-ngmin": "0.0.3"
+  }
+}
