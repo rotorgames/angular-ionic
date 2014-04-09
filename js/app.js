@@ -95,7 +95,6 @@ App = angular.module('App', ['ionic','pgHistory'])
   console.log('HomeTabCtrl');
 })
 
-.controller('FactsTabCtrl', function($scope) {
-	//$scope.on('$onScroll',function(){console.log('good')})
-  $scope.kot = function(){console.log('nekot')};
+.controller('FactsTabCtrl', function($scope, $ionicScrollDelegate) {
+	alert();
 });
