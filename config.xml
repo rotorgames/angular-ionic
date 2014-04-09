@@ -18,6 +18,8 @@
     </author>
 	
 	<preference name="permissions" value="none"/>
+	
+	<gap:plugin name="org.apache.cordova.device" version="0.2.8" />
 
 	<gap:platform name="android" />
 	<gap:platform name="ios" />
