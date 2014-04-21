@@ -1,4 +1,4 @@
-App = angular.module('App', ['ionic','pgHistory'])
+App = angular.module('App', ['ionic','pgHistory','freeInfiniteScroll'])
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -96,5 +96,12 @@ App = angular.module('App', ['ionic','pgHistory'])
 })
 
 .controller('FactsTabCtrl', function($scope, $ionicScrollDelegate) {
-	alert();
+	$scope.doRefresh = function(){};
+	var kote = [];
+	for(var i = 0; i < 12; i++){
+		kote.push({i:i});
+	}
+	$scope.kott = kote;
+	scop = $scope;
+	//$scope.$broadcast("iScrillLoad");
 });

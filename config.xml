@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "rotorgames.angular-ionic.test"
+        id        = "rotorgames.angular-ionic.dev"
         versionCode="1" 
         version   = "0.0.1">
 
     <!-- versionCode is optional and Android only -->
 	
-    <name>An-Io</name>
+    <name>An-Io Dev</name>
 
     <description>
-    	An-Io
+    	An-Io Dev
     </description>
 
     <author href="https://rotorgames.ru" email="rotorgames@bk.ru">
@@ -18,9 +18,11 @@
     </author>
 	
 	<preference name="permissions" value="none"/>
+	
+	<gap:plugin name="org.apache.cordova.device" version="0.2.8" />
 
 	<gap:platform name="android" />
-	<!--<gap:platform name="ios" />-->
+	<gap:platform name="ios" />
 	<preference name="phonegap-version" value="3.3.0" />
 	<content src="http://rotorgames.ru/angular-ionic/index.html" />
    	<access origin="*" subdomains="true" />

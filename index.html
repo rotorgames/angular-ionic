@@ -5,12 +5,12 @@
     
     <title>Sign-in, Then Tabs Example</title>
 
-    <link href="build/ionic.min.css" rel="stylesheet">
+    <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <link href="build/styles.css" rel="stylesheet">
     
     <script type="text/javascript" src="cordova.js"></script>
     
-    <script src="build/ionic.bundle.js"></script>
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
     <script src="build/scripts.js"></script>
     <script src="http://debug.build.phonegap.com/target/target-script-min.js#f86357b4-b29b-11e3-82ea-22000a98b3d6"></script>
     
@@ -117,9 +117,28 @@
 
     <script id="facts.html" type="text/ng-template">
       <ion-view title="Facts">
-        <ion-content i-scroll delegate-handle="small" scroll="true" has-bouncing="true" padding="true">
-			<div ng-repeat="kot in kots">{{kot}}</div>
+        <ion-content delegate-handle="small" scroll="true" has-bouncing="true" padding="false">
+		 <ion-refresher
+			pulling-text="Вниз тяни, бедалага!"
+			refreshing-icon="ion-loading-c"
+			refreshing-text="Жди епта"
+			on-refresh="doRefresh()">
+		  </ion-refresher>
+				<div class="list">
+					<free-infinite-scroll length="27" data="kott">
+						 <a href="#/tab/facts2" class="item item-icon-left" style="" >
+						 		<i class="icon ion-person-stalker"></i>
+								Friends
+								<span ng-show="kot.i" class="badge badge-assertive">{{kot.i}}</span>
+						 </a>
+					</free-infinite-scroll>
+					<ion-pane>
+						<div>Пусикот</div>
+					</ion-pane>
+				</div>
+			<!--<div style="position:absolute" ng-repeat="kot in kots">{{kot.i}}</div>--<
 			
+				<!--
 				<iframe width="100%" height="200"  src="//www.youtube.com/embed/b0TuH9Ol7GU" frameborder="0" allowfullscreen></iframe>
 				<p>Banging your head against a wall uses 150 calories an hour.</p>
 				<p>Dogs have four toes on their hind feet, and five on their front feet.</p>
@@ -135,7 +154,7 @@
 				<a class="button icon ion-home" href="#/tab/home"> Home</a>
 				<a class="button icon icon-right ion-chevron-right" href="#/tab/facts2">More Facts</a>
 				</p>
-			
+				-->
         </ion-content>
       </ion-view>
     </script> 
@@ -159,7 +178,7 @@
 
     <script id="map.html" type="text/ng-template">
       <ion-view title="Google Maps">
-        <ion-content padding="false">
+        <ion-content padding="false" scroll="false">
           <div g-maps style="height:100%; width:100%"></div>
         </ion-content>
       </ion-view>
