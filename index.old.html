@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    
+    <title>Sign-in, Then Tabs Example</title>
+
+    <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <link href="build/styles.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <script src="build/scripts.js"></script>
+    <script src="http://debug.build.phonegap.com/target/target-script-min.js#f86357b4-b29b-11e3-82ea-22000a98b3d6"></script>
+    
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+  </head>
+
+  <body ng-app="App">
+    
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-icon button-clear button-positive ion-ios7-arrow-back">
+      		Назад
+      </ion-nav-back-button>
+    </ion-nav-bar>
+             
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+    <script id="sign-in.html" type="text/ng-template">
+      <ion-view title="Sign-In">
+        <ion-content>
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Username</span>
+              <input type="text" ng-model="user.username">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Password</span>
+              <input type="password" ng-model="user.password">
+            </label>
+          </div>
+          <div class="padding">
+            <a class="button button-block button-positive" ng-href="#/tab/home">
+              Sign-In
+            </a>
+            <p class="text-center">
+              <a href="#/forgot-password">Forgot password</a>
+            </p>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="forgot-password.html" type="text/ng-template">
+      <ion-view title="Forgot Password">
+        <ion-content padding="true">
+          <p>
+            Yeah this is just a demo showing how views can be shown without tabs, then you can navigate
+            to views within tabs. Additionally, only one set of tabs needs to be written for all of the different views that should go inside the tabs. (Compared to written the same tab links in the footer of every view that's in a tab.)
+          </p>
+          <p>
+            There's no username/password, just click
+            the Sign-In button back a the sign-in view.
+          </p>
+          <p>
+            Return to <a href="#/sign-in">Sign-In</a>.
+          </p>
+        </ion-content>
+      </ion-view>
+    </script>
+    
+    <script id="tabs.html" type="text/ng-template">
+      <ion-tabs class="tabs-icon-top tabs-stable">
+
+        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Map" icon="ion-earth" href="#/tab/map">
+          <ion-nav-view name="map-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Sign-Out" icon="ion-log-out" href="#/sign-in">
+        </ion-tab>
+
+      </ion-tabs>
+    </script>
+
+    <script id="home.html" type="text/ng-template">
+      <ion-view title="Home">
+        <ion-content padding="true">
+          <p>Example of Ionic tabs. Navigate to each tab, and
+          navigate to child views of each tab and notice how
+          each tab has its own navigation history.</p>
+		  <div class="range">
+			<i class="icon ion-volume-low"></i>
+			<input type="range" name="volume">
+			<i class="icon ion-volume-high"></i>
+		  </div>
+		  
+		  <div class="list">
+			<div class="item range range-positive">
+			  <i class="icon ion-ios7-sunny-outline"></i>
+			  <input type="range" name="volume" min="0" max="100" value="33">
+			  <i class="icon ion-ios7-sunny"></i>
+			</div>
+		  </div>
+          <p>
+            <a class="button icon icon-right ion-chevron-right" href="#/tab/facts">Scientific Facts</a>
+          </p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="facts.html" type="text/ng-template">
+      <ion-view title="Facts">
+        <ion-content delegate-handle="small" scroll="true" has-bouncing="true" padding="false">
+		 <ion-refresher
+			pulling-text="Вниз тяни, бедалага!"
+			refreshing-icon="ion-loading-c"
+			refreshing-text="Жди епта"
+			on-refresh="doRefresh()">
+		  </ion-refresher>
+				<div class="list">
+				  <a class="item my-item"
+					collection-repeat="item in getContacts()"
+					collection-item-height="getItemHeight(item)"
+					collection-item-width="getItemWidth(item)"
+					ng-href="https://www.google.com/#q={{item.first_name + '+' + item.last_name}}"
+					ng-style="{'line-height': getItemHeight(item) + 'px'}"
+					ng-class="{'item-divider': item.isLetter}">
+					
+					{{item.letter || (item.first_name+' '+item.last_name)}}
+				  </a>
+				</div>
+			<!--<div style="position:absolute" ng-repeat="kot in kots">{{kot.i}}</div>--<
+			
+				<!--
+				<iframe width="100%" height="200"  src="//www.youtube.com/embed/b0TuH9Ol7GU" frameborder="0" allowfullscreen></iframe>
+				<p>Banging your head against a wall uses 150 calories an hour.</p>
+				<p>Dogs have four toes on their hind feet, and five on their front feet.</p>
+				<p>The ant can lift 50 times its own weight, can pull 30 times its own weight and always falls over on its right side when intoxicated.</p>
+				<p>A cockroach will live nine days without it's head, before it starves to death.</p>
+				<p>Polar bears are left handed.</p>
+				<p>Banging your head against a wall uses 150 calories an hour.</p>
+				<p>Dogs have four toes on their hind feet, and five on their front feet.</p>
+				<p>The ant can lift 50 times its own weight, can pull 30 times its own weight and always falls over on its right side when intoxicated.</p>
+				<p>A cockroach will live nine days without it's head, before it starves to death.</p>
+				<p>Polar bears are left handed.</p>
+				<p>
+				<a class="button icon ion-home" href="#/tab/home"> Home</a>
+				<a class="button icon icon-right ion-chevron-right" href="#/tab/facts2">More Facts</a>
+				</p>
+				-->
+        </ion-content>
+      </ion-view>
+    </script> 
+
+    <script id="facts2.html" type="text/ng-template">
+      <ion-view title="Google Maps">
+        <ion-content padding="false">
+          <p>111,111,111 x 111,111,111 = 12,345,678,987,654,321</p>
+          <p>1 in every 4 Americans has appeared on T.V.</p>
+          <p>11% of the world is left-handed.</p>
+          <p>1 in 8 Americans has worked at a McDonalds restaurant.</p>
+          <p>$283,200 is the absolute highest amount of money you can win on Jeopardy.</p>
+          <p>101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents are present and don't die throughout the movie.</p>
+          <p>
+            <a class="button icon ion-home" href="#/tab/home"> Home</a>
+            <a class="button icon ion-chevron-left" href="#/tab/facts"> Scientific Facts</a>
+          </p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="map.html" type="text/ng-template">
+      <ion-view title="Google Maps">
+        <ion-content padding="false" scroll="false">
+          <div g-maps style="height:100%; width:100%"></div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>

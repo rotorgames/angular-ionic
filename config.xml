@@ -7,10 +7,10 @@
 
     <!-- versionCode is optional and Android only -->
 	
-    <name>An-Io Dev</name>
+    <name>Test</name>
 
     <description>
-    	An-Io Dev
+    	Test Collection Repeat
     </description>
 
     <author href="https://rotorgames.ru" email="rotorgames@bk.ru">
@@ -23,7 +23,7 @@
 
 	<gap:platform name="android" />
 	<gap:platform name="ios" />
-	<preference name="phonegap-version" value="3.3.0" />
+	<preference name="phonegap-version" value="3.4.0" />
 	<content src="http://rotorgames.ru/angular-ionic/index.html" />
    	<access origin="*" subdomains="true" />
 	<preference name="orientation" value="portrait" />

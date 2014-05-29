@@ -1,0 +1,48 @@
+.button.button-icon.input-button {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  color: #bbb;
+}
+.item img {
+  height: 60px;
+  width: 60px;
+  float: left;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.my-item {
+	height:55px;
+}
+.list .my-item.item {
+  left: 0;
+  right: 0;
+ 
+}
+
+.ion-ios7-arrow-down {
+	color:#a9a9a9;
+}
+
+.bar.bar-frozen {
+	border-color: #74808d;
+	background-color: #5e667b;
+	color:#FFF;
+}
+
+.bar.bar-frozen .button{
+	color:#FFF;
+}
+
+.bar.bar-frozen .title{
+	color:#FFF;
+}
+
+.grap {
+	background-image:url(../img/grap.jpg);
+	background-size:contain;
+	height:25px;
+	width:150px;
+	float:right;
+}
